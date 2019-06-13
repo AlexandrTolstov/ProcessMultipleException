@@ -17,7 +17,7 @@ namespace ProcessMultipleException
             {
                 myCar.Accelerate(-10);
             }
-            catch (CarIsDeadException e)
+            catch (CarIsDeadException e)when(e.ErrorTimeStamp.DayOfWeek != DayOfWeek.Friday)
             {
                 try
                 {
@@ -41,6 +41,8 @@ namespace ProcessMultipleException
             {
                 myCar.CrankTunes(false);
             }
+            Car newCar = new Car("Nasty", 90);
+            myCar.Accelerate(2000);
             Console.ReadLine();
         }
     }
